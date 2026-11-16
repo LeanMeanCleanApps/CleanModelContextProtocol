@@ -19,7 +19,7 @@ services:
     depends_on:
       - otel-collector
   inspector:
-    image: ghcr.io/modelcontextprotocol/inspector:2.13.0
+    image: ghcr.io/modelcontextprotocol/inspector:2.15.0
     command: ["--web", "--transport", "http", "--server-url", "http://api:7320/mcp"]
     environment:
       # The Inspector only accepts calls from the origin it listens on, so it listens on the same port inside and out.
@@ -31,7 +31,7 @@ services:
     depends_on:
       - api
   otel-collector:
-    image: otel/opentelemetry-collector:0.164.0
+    image: otel/opentelemetry-collector:0.165.0
     volumes:
       - ./otel-collector.yaml:/etc/otelcol/config.yaml:ro
     ports:
@@ -42,7 +42,7 @@ services:
     depends_on:
       - aspire-dashboard
   aspire-dashboard:
-    image: mcr.microsoft.com/dotnet/aspire-dashboard:13.6.2
+    image: mcr.microsoft.com/dotnet/aspire-dashboard:13.6.5
     ports:
       - "7322:18888"
     environment:
@@ -52,7 +52,7 @@ services:
   #if (!includeAuth)
   # Optional chat over the MCP server: docker compose --profile demo up -d --build. Prompts go to Kilo, a third party.
   chat:
-    image: ghcr.io/open-webui/open-webui:v0.13.0
+    image: ghcr.io/open-webui/open-webui:v0.13.3
     profiles:
       - demo
     ports:
