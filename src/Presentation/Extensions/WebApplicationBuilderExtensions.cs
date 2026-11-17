@@ -164,7 +164,7 @@ public static class WebApplicationBuilderExtensions
                     Version = assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion ?? string.Empty,
                     // The docs site and a pinned brand release, not this repository: dotnet new renames the
                     // template's name wherever it appears, so repository links break in a new solution.
-                    WebsiteUrl = "https://leanmeancleanapps.github.io/mcp/",
+                    WebsiteUrl = "https://leanmeanclean.dev/mcp/",
                     Icons =
                     [
                         new()
